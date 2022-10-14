@@ -1,1 +1,14 @@
+header {
+  display: flex;
+  justify-content: center;
+  background-color: grey;
+  opacity: 75%;
+}
 
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
