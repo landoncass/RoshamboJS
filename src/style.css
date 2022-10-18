@@ -12,3 +12,8 @@ section {
   align-items: center;
   background-color: aquamarine;
 }
+
+button {
+  background-color: grey;
+  color: white;
+}

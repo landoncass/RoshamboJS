@@ -10,15 +10,21 @@ function checkForEndGame() {
   if (state.player1 === 'rock' && state.player2 === 'rock') {
     alert('Tie game... play again!')
   } else if (state.player1 === 'rock' && state.player2 === 'paper') {
-    alert('Player Two wins!')
+    alert('Player Two wins! ')
   } else if (state.player1 === 'rock' && state.player2 === 'scissors') {
     alert('Player One wins!')
+    return
   } else if (state.player1 === 'paper' && state.player2 === 'paper') {
     alert('Tie game... play again!')
+    return
   } else if (state.player1 === 'paper' && state.player2 === 'paper') {
     alert('Tie game... play again!')
+  } else if (state.player1 === 'scissors' && state.player2 === 'rock') {
+    alert('Player Two wins!')
   } else if (state.player1 === 'scissors' && state.player2 === 'scissors') {
     alert('Tie game... play again!')
+  } else if (state.player1 === 'scissors' && state.player2 === 'paper') {
+    alert('Player one wins!')
   }
 }
 
@@ -52,18 +58,22 @@ function setupPlayer(id: 'player1' | 'player2') {
   }
 
   scissorsButton.addEventListener('click', assignScissors)
+
+  const playAgainButton = document.querySelector(
+    '#PlayAgain'
+  ) as HTMLButtonElement
+
+  function playAgain(_event: Event) {
+    state.player1 = ''
+    state.player2 = ''
+    scissorsButton.style.backgroundColor = 'grey'
+    rockButton.style.backgroundColor = 'grey'
+    paperButton.style.backgroundColor = 'grey'
+    alert('Player One, throw a new hand')
+  }
+
+  playAgainButton.addEventListener('click', playAgain)
 }
-
-const playAgainButton = document.querySelector(
-  '#PlayAgain'
-) as HTMLButtonElement
-
-function playAgain(_event: Event) {
-  state.player1 = ''
-  state.player2 = ''
-}
-
-playAgainButton.addEventListener('click', playAgain)
 
 setupPlayer('player1')
 setupPlayer('player2')
